@@ -1,0 +1,18 @@
+﻿<Window x:Class="DiabetesStats.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:this="clr-namespace:DiabetesStats"
+        Title="Diabetes Stats"
+        Icon="ProgramIcon.ico"
+        Height="640" Width="800" MinHeight="640" MinWidth="800">
+    <Grid>
+        <TabControl Margin="8">
+            <TabItem Header="Pazienti">
+                <this:PatientsView/>
+            </TabItem>
+            <TabItem Header="Ricerca">
+                <this:SearchView/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
