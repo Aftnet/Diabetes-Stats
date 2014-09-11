@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="$(var.Diabetes Stats.ProjectName)" Language="1033" Version="1.0.0.0" Manufacturer="Aftnet" UpgradeCode="056fb8be-ef4b-4b83-aad4-69e711528b35">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="Installer" Level="1">
+      <ComponentGroupRef Id="CrossArchitectureComponents" />
+      <ComponentGroupRef Id="x64Components" />
+      <ComponentGroupRef Id="x86Components" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.Diabetes Stats.ProjectName)">
+          <Directory Id="x64Dir" Name="amd64"/>
+          <Directory Id="x86Dir" Name="x86"/>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="CrossArchitectureComponents" Directory="INSTALLFOLDER">
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\Diabetes Stats.exe" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\Diabetes Stats.exe.config" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\EntityFramework.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\EntityFramework.SqlServer.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\EntityFramework.SqlServerCompact.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\System.Data.SqlServerCe.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\System.Data.SqlServerCe.Entity.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="$(var.Diabetes Stats.TargetDir)\Xceed.Wpf.Toolkit.dll" />
+      </Component>
+    </ComponentGroup>
+    
+    <ComponentGroup Id="x64Components" Directory="x64Dir">
+      <Component Guid="*">
+        <File Id="msvcr90.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlceca40.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\sqlceca40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlcecompact40.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\sqlcecompact40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="qlceer40EN.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\sqlceer40EN.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="qlceme40.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\sqlceme40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlceqp40.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\sqlceqp40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlcese40.dllamd64" Source="$(var.Diabetes Stats.TargetDir)\amd64\sqlcese40.dll" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="x86Components" Directory="x86Dir">
+      <Component Guid="*">
+        <File Id="msvcr90.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlceca40.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\sqlceca40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlcecompact40.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\sqlcecompact40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="qlceer40EN.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\sqlceer40EN.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="qlceme40.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\sqlceme40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlceqp40.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\sqlceqp40.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Id="sqlcese40.dllx86" Source="$(var.Diabetes Stats.TargetDir)\x86\sqlcese40.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
